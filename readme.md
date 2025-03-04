@@ -16,10 +16,10 @@ Una vez instalado, en la documentación oficial del framework se va indicando pa
 npm install tailwindcss @tailwindcss/cli
 ```
 
-Una vez instalado la versión de cliente solo es necesario indicarle al html una direccion de un css de salida y un css de entrada, para ello en la carpeta de estilos se puede crear el archivo de entrada y salida, indicandole al html que genere los estilos automaticamente con el siguiente comando:
+Una vez instalado la versión de cliente solo es necesario indicarle al html una direccion de un css de salida y un css de entrada (a este se debe incluir @import "tailwindcss";), para ello en la carpeta de estilos se puede crear estos archivos de entrada y salida, indicandole al html que genere los estilos automaticamente con el siguiente comando una vez dentro del html que requiera de compilación:
 
 ```sh
-npx @tailwindcss/cli -i ruta relativa entrada -o ./src/ruta relativa salida --watch
+npx @tailwindcss/cli -i ruta relativa entrada -o ruta relativa salida --watch
 
 ```
 Este comando se puede cancelar en cualquier momento usando control+c
@@ -63,7 +63,11 @@ Una vez hecho, dentro del index se incluye el archivo script de JS, y se incluye
 
 Una vez asegurado que funciona bien, se hace una copia y se pega en otro archivo html con el nombre de jquery, omitiendo la parte del script, que se usa de base para "traducir" las funciones al lenguaje de jquery, que para que funcione hay que adjuntar la siguiente sentencia dentro del html para que este funcione:
 
- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+```html
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+```
+Una vez añadido se debe añadir con un script el código de JQuery, y una vez añadido se puede repetir el paso anterior para pasar el codigo talwind a Css por si se quiere añadir algo extra, aunque como es el mismo no será necesario.
+
 
 
 
