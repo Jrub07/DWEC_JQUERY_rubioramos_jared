@@ -1,21 +1,27 @@
-function obtener_personajes(offset = 0) {
-  return new Promise((resolve, reject) => {
+//Aunque se pide infinito, el limite son 3000
+let desplazamiento = 0;
+const limite = 3000; 
+let cargando = false; 
+
+
+function obtener_personajes(desplazamiento = 0) {
+  return new Promise((resolver, rechazar) => {
     const clave_publica = 'ae345734f6b6d95b1051200b15c6fc5e';
     const clave_privada = '8084e32acf3a80061a58b8cb59b0ffd9493a5151';
     const tiempo = new Date().getTime();
     const hash = CryptoJS.MD5(tiempo + clave_privada + clave_publica).toString();
 
-    const url = `https://gateway.marvel.com/v1/public/characters?ts=${tiempo}&apikey=${clave_publica}&hash=${hash}&offset=${offset}`;
+    const url = `https://gateway.marvel.com/v1/public/characters?ts=${tiempo}&apikey=${clave_publica}&hash=${hash}&offset=${desplazamiento}`;
 
     fetch(url)
       .then(respuesta => {
         if (!respuesta.ok) {
-          reject('Error en la solicitud a la API de Marvel');
+          rechazar('Error en la solicitud a la API de Marvel');
         }
         return respuesta.json();
       })
-      .then(datos => resolve(datos.data.results))
-      .catch(error => reject(error));
+      .then(datos => resolver(datos.data.results))
+      .catch(error => rechazar(error));
   });
 }
 
@@ -27,15 +33,13 @@ function mezclar_array(array) {
   return array;
 }
 
-let offset = 0;
-const limit = 20; 
-let cargando = false; 
+
 
 function cargar_personajes() {
   if (cargando) return; 
   cargando = true;
 
-  obtener_personajes(offset)
+  obtener_personajes(desplazamiento)
     .then(personajes => {
       const contenedor_marvel = document.getElementById('marvel-container');
 
@@ -61,7 +65,7 @@ function cargar_personajes() {
         contenedor_marvel.appendChild(carta_personaje);
       });
 
-      offset += limit;
+      desplazamiento += limite;
       cargando = false; 
     })
     .catch(error => {
@@ -73,7 +77,7 @@ function cargar_personajes() {
 cargar_personajes();
 
 window.addEventListener('scroll', () => {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) { // Ajuste para cargar antes de llegar al final
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) { 
     cargar_personajes();
   }
 });

@@ -9,31 +9,55 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
   <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet" />
   <link href="./styles/salida.css" rel="stylesheet">
-</head>
+<!-- codigo de Daisy para barra de navegacion -->
 <body class="bg-gray-100 text-gray-900">
-  <header class="bg-red-600 text-white p-4 shadow-md">
-    <section class="flex items-center justify-between">
-      <img src="./img/logo_marvel.png" alt="logo" class="h-12">
-      <nav>
-        <ul class="flex space-x-4 text-lg font-semibold">
-          <li><a href="#" class="hover:underline">Cine</a></li>
-          <li><a href="#" class="hover:underline">Películas</a></li>
-          <li><a href="#" class="hover:underline">Cómics</a></li>
-          <li><a href="https://www.marvel.com/" target="_blank" class="hover:underline">Oficial</a></li>
-        </ul>
-      </nav>
-    </section>
+  <header class="navbar bg-red-600 text-white p-4 shadow-md">
+      <section class="container mx-auto flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold flex items-center">
+              <img class="h-12 mr-2" src="./img/logo_marvel.png" alt="Marvel Logo"> 
+          </a>
+          <nav class="hidden md:flex space-x-6">                
+              <a href="#" class="hover:text-gray-300">Películas</a>
+              <a href="#" class="hover:text-gray-300">Cómics</a>
+              <a href="https://www.marvel.com/" target="_blank" class="hover:text-gray-300">Oficial</a>
+          </nav>
+      </section>
   </header>
 
-  <main class="p-4">
-    <h1 class="text-3xl font-bold mb-4 text-center">Personajes de Marvel</h1>
-    <section id="marvel-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-center"></section>
+  <main class="container mx-auto p-6">
+      <h1 class="text-4xl font-extrabold mb-6 text-center">Personajes de Marvel</h1>
+      
+      <!-- Tarjetas de Tailwind UI, para colocar principalmente -->
+      <section id="marvel-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+         
+      </section>
   </main>
+
+  <!-- Footer de DaisyUI -->
+  <footer class="footer p-10 bg-gray-800 text-gray-300">
+      <section>
+          <span class="footer-title">Marvel</span>
+          <a class="link link-hover">Acerca de</a>
+          <a class="link link-hover">Contacto</a>
+          <a class="link link-hover">Noticias</a>
+      </section>
+      <section>
+          <span class="footer-title">Redes Sociales</span>
+          <a class="link link-hover">Twitter</a>
+          <a class="link link-hover">Facebook</a>
+          <a class="link link-hover">Instagram</a>
+      </section>
+      <section>
+          <span class="footer-title">Legal</span>
+          <a class="link link-hover">Términos y condiciones</a>
+          <a class="link link-hover">Política de privacidad</a>
+      </section>
+  </footer>
 
   <script>
     $(document).ready(function() {
       let offset = 0;
-      const limit = 20;
+      const limit = 100;
       let cargando = false;
 
       function obtener_personajes(offset) {
