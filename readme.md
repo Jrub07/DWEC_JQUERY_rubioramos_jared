@@ -20,7 +20,9 @@ Una vez instalado la versión de cliente solo es necesario indicarle al html una
 
 ```sh
 npx @tailwindcss/cli -i ruta relativa entrada -o ./src/ruta relativa salida --watch
+
 ```
+Este comando se puede cancelar en cualquier momento usando control+c
 
 Hecho eso, se pueden consultar diferentes adaptaciones de empresas para poder ejecturar el codigo tailwind con más afcilidad, por ejemplo en este caso se ha decidio implementar Daisy UI (https://daisyui.com/), que facilita que los diseños tengan responsividad más facil de manejar. Se puede instalar por npm pero tambien se puede adjuntar como enlace dentro de cada archivo a implementar, como por ejemplo con la siguiente linea:
 

@@ -1,6 +1,6 @@
-//Aunque se pide infinito, el limite son 3000
+
 let desplazamiento = 0;
-const limite = 3000; 
+const limite = 100; 
 let cargando = false; 
 
 

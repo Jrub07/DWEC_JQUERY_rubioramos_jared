@@ -9,14 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css" rel="stylesheet" />
     <link href="./output.css" rel="stylesheet">
 </head>
-<!-- codigo de Daisy para barra de navegacion -->
 <body class="bg-gray-100 text-gray-900">
     <header class="navbar bg-red-600 text-white p-4 shadow-md">
         <section class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold flex items-center">
                 <img class="h-12 mr-2" src="./img/logo_marvel.png" alt="Marvel Logo"> 
             </a>
-            <nav class="hidden md:flex space-x-6">                
+            <nav class="flex space-x-6">
+                <a href="#" class="hover:text-gray-300">Cine</a>
                 <a href="#" class="hover:text-gray-300">Películas</a>
                 <a href="#" class="hover:text-gray-300">Cómics</a>
                 <a href="https://www.marvel.com/" target="_blank" class="hover:text-gray-300">Oficial</a>
@@ -24,10 +24,11 @@
         </section>
     </header>
 
+    <!-- Contenido principal -->
     <main class="container mx-auto p-6">
         <h1 class="text-4xl font-extrabold mb-6 text-center">Personajes de Marvel</h1>
         
-        <!-- Tarjetas de Tailwind UI, para colocar principalmente -->
+        <!-- Tarjetas con Tailwind UI -->
         <section id="marvel-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
            
         </section>
